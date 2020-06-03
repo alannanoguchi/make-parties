@@ -24,6 +24,25 @@ app.get('/', (req, res) => {
     res.render('events-index', { events: events });
   })
 
+// NEW
+app.get('/events/new', (req, res) => {
+    res.render('events-new', {});
+  })
+  
+
+// INITIALIZE BODY-PARSER AND ADD IT TO APP
+const bodyParser = require('body-parser');
+
+
+// The following line must appear AFTER const app = express() and before your routes!
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
+// CREATE
+app.post('/events', (req, res) => {
+  console.log(req.body);
+})
+
 // Choose a port to listen on
 const port = process.env.PORT || 3000;
 
