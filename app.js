@@ -19,9 +19,11 @@ var events = [
     { title: "I am your third event", desc: "A great event that is super fun to look at and good", imgUrl: "https://images.unsplash.com/photo-1565726166189-e9814a05ffde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" }
   ]
   
-// INDEX
+// Index
 app.get('/', (req, res) => {
-    res.render('events-index', { events: events });
+    models.Event.findAll({ order: [['createdAt', 'DESC']] }).then(events => {
+      res.render('events-index', { events: events });
+    })
   })
 
 // NEW
@@ -33,6 +35,8 @@ app.get('/events/new', (req, res) => {
 // INITIALIZE BODY-PARSER AND ADD IT TO APP
 const bodyParser = require('body-parser');
 
+const models = require('./db/models');
+
 
 // The following line must appear AFTER const app = express() and before your routes!
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -40,8 +44,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // CREATE
 app.post('/events', (req, res) => {
-  console.log(req.body);
-})
+    models.Event.create(req.body).then(event => {
+      res.redirect(`/`);
+    }).catch((err) => {
+      console.log(err)
+    });
+  })
+
 
 // Choose a port to listen on
 const port = process.env.PORT || 3000;
