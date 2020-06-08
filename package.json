@@ -22,16 +22,5 @@
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-
-  "production": {
-    "use_env_variable": "DATABASE_URL",
-    "dialect": "postgres",
-    "dialectOptions": {
-       "ssl": {
-         "require": true,
-         "rejectUnauthorized": false
-       }
-     }
-   }
+  }
 }
