@@ -13,10 +13,11 @@
                         <div class="text-right">
                             <a href="/events/{{event.dataValues.id}}" class='text-muted mr-2'>Cancel</a>
                             <button type="submit" class="btn btn-primary" name="button">Update</button>
+                            <button type="submit" class='btn btn-danger'>Delete</button>
                         </div>
                     </form>
                     <form action="/events/{{event.dataValues.id}}?_method=DELETE" method="POST">
-                        <button type="submit" class='btn btn-danger'>Delete</button>
+ 
                     </form>
                 </div>
             </div>
