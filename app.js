@@ -54,10 +54,10 @@ var events = [
 //     })
 //   })
 
-// NEW
-app.get('/events/new', (req, res) => {
-    res.render('events-new', {});
-  })
+// // NEW
+// app.get('/events/new', (req, res) => {
+//     res.render('events-new', {});
+//   })
   
 // // SHOW
 // app.get('/events/:id', (req, res) => {

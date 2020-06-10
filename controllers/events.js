@@ -1,5 +1,6 @@
 //  Be sure to import this file into app.js: require('./controllers/events')(app, models);
 //  Migrate all the event routes from app.js into this file, be sure to follow above comment too
+const moment = require('moment')
 
 module.exports = function (app, models) {
     // Index
@@ -10,10 +11,10 @@ module.exports = function (app, models) {
     });
 
 
-    // // NEW
-    // app.get('/events/new', (req, res) => {
-    //     res.render('events-new', {});
-    // });
+    // NEW
+    app.get('/events/new', (req, res) => {
+        res.render('events-new', {});
+    });
 
     
     // SHOW
