@@ -30,7 +30,8 @@ module.exports = function (app, models) {
     });
 
     // UPDATE
-    app.put('/events/:id', (req, res) => {
+    app.post('/events/:id/update', (req, res) => {
+        console.log('---------------', req.body)
         models.Event.findByPk(req.params.id).then(event => {
             event.update(req.body).then(event => {
                 res.redirect(`/events/${req.params.id}`);
@@ -66,7 +67,7 @@ module.exports = function (app, models) {
 
 
     // DELETE
-    app.delete('/events/:id', (req, res) => {
+    app.get('/events/:id/delete', (req, res) => {
         models.Event.findByPk(req.params.id).then(event => {
             event.destroy();
             res.redirect(`/`);

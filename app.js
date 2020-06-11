@@ -17,10 +17,6 @@ const hbs = exphbs.create({
 });
 
 
-// All routes were moved into controllers/events.js. They need to be imported here:
-require('./controllers/events')(app, models);  
-require('./controllers/rsvps')(app, models);
-
 // The following line must appear AFTER const app = express() and before your routes!
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -114,6 +110,11 @@ var events = [
 //     console.log(err);
 //   });
 // })
+
+// All routes were moved into controllers/events.js. They need to be imported here:
+// have at the bottom
+require('./controllers/events')(app, models);  
+require('./controllers/rsvps')(app, models);
 
 
 // Choose a port to listen on

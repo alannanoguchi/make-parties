@@ -8,17 +8,18 @@
                     <h3>Update Event</h3>
                 </div>
                 <div class="card-text">
-                    <form action="/events/{{event.dataValues.id}}?_method=PUT" method="POST">
+                    <form action="/events/{{event.dataValues.id}}/update" method="POST">
                         {{> events-form }}
                         <div class="text-right">
                             <a href="/events/{{event.dataValues.id}}" class='text-muted mr-2'>Cancel</a>
                             <button type="submit" class="btn btn-primary" name="button">Update</button>
-                            <button type="submit" class='btn btn-danger'>Delete</button>
+                            <a href='/events/{{event.dataValues.id}}/delete'><button type="button" class='btn btn-danger'>Delete</button></a>
                         </div>
                     </form>
-                    
-                    <form action="/events/{{event.dataValues.id}}?_method=DELETE" method="POST">
-                    </form>
+
+                    {{!-- <form action="/events/{{event.dataValues.id}}/delete" method="POST">
+                    <button type="submit" class='btn btn-danger'>Delete</button>
+                    </form> --}}
                 </div>
             </div>
         </div>
