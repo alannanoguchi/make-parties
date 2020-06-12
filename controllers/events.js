@@ -17,11 +17,11 @@ module.exports = function (app, models) {
             return res.render('events-index', { events:events });
 
 
-            if (req.header('Content-type') == 'application/json') {
-                return res.json({events})
-            } else {
-                return res.render('events-index', {events:events})
-            }
+            // if (req.header('Content-type') == 'application/json') {
+            //     return res.json({events})
+            // } else {
+            //     return res.render('events-index', {events:events})
+            // }
         } catch(err) {
             return console.log(err)
         }
